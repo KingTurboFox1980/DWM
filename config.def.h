@@ -164,112 +164,110 @@ static void (*bartabmonfns[])(Monitor *) = { NULL /* , customlayoutfn */ };
 #endif // MONOCLE_LAYOUT
 #endif // BAR_TABGROUPS_PATCH
 #if BAR_PANGO_PATCH
-static const char font[]                 = "Inter:size=16:style=Bold"; //IcoMoon, Roboto, Fira Code
+static const char font[]                 = "Times New Roman:size=16:style=Bold"; //IcoMoon, Roboto, Fira Code, FantasqueSansM Nerd Font
 #else
-static const char *fonts[] 				 = {"Inter:size=16:style=Bold", "NotoColorEmoji:pixelsize=14:antialias=true:autohint=true", "DejaVu Sans Mono:size=14","FontAwesome:pixelsize=13:antialias=true:autohint=true"}; // (DWMBLOCKS | DWMBAR FONT)
+static const char *fonts[] 				 = {"FantasqueSansM Nerd Font:size=16:style=Bold", "NotoColorEmoji:pixelsize=14:antialias=true:autohint=true", "DejaVu Sans Mono:size=14","FontAwesome:pixelsize=13:antialias=true:autohint=true", "SymbolsNerdFont:weight=bold:size=14"}; // (DWMBLOCKS | DWMBAR FONT)
 #endif // BAR_PANGO_PATCH
 static const char dmenufont[]            = "Dina:size=16";
 
 static char c000000[]                    = "#000000"; // placeholder value
 
-// Normal (Unselected) Window Colors
-static char normfgcolor[]                = "#6272A4"; // Foreground Color for Normal (Unselected) Windows and Dwmblocks // f8f8f2
-static char normbgcolor[]                = "#100C08"; // Background Color for Normal (Unselected) Windows and Dwmblocks //010127
-static char normbordercolor[]            = "#666666"; // Border Color for Normal (Unselected) Windows
-static char normfloatcolor[]             = "#666666"; // Border Color for Floating Normal (Unselected) Windows
+// Focused Window Colors 
+static char selfgcolor[]                 = "#6272A4"; // Foreground Color for Focused Windows #6272A4
+static char selbgcolor[]                 = "#100C08"; // Background Color for Focused Windows #100C08
+static char selbordercolor[]             = "#100C08"; // Border Color for Focused Windows #100C08
+static char selfloatcolor[]              = "#100C08"; // Border Color for Focused Windows #100C08
 
-// Selected (Focused) Window Colors 
-static char selfgcolor[]                 = "#f8f8f2"; // Foreground Color for Selected (Focused) Windows
-static char selbgcolor[]                 = "#6272a4"; // Background Color for Selected (Focused) Windows
-static char selbordercolor[]             = "#8AFF80"; // Border Color for Selected (Focused) Windows
-static char selfloatcolor[]              = "#8AFF80"; // Border Color for Floating Selected (Focused) Windows
+// Title Focused Window Colors
+static char titleselfgcolor[]            = "#100C08"; // Text Color for Focused Window Titles #100C08*****
+static char titleselbgcolor[]            = "#FF0000"; // Background Color for Focused Window Titles #FF0000
+static char titleselbordercolor[]        = "#FF0000"; // Border Color for Focused Window Titles #FF0000
+static char titleselfloatcolor[]         = "#FF0000"; // Border Color for Floating Focused Window Titles #FF0000
 
-// Title Normal (Unselected) Window Colors
-static char titlenormfgcolor[]           = "#f8f8f2"; // Foreground Color for Normal (Unselected) Window Titles
-static char titlenormbgcolor[]           = "#100C08"; // Background Color for Normal (Unselected) Window Titles
-static char titlenormbordercolor[]       = "#100C08"; // Border Color for Normal (Unselected) Window Titles
-static char titlenormfloatcolor[]        = "#100C08"; // Border Color for Floating Normal (Unselected) Window Titles
+// Unselected Window Colors
+static char normfgcolor[]                = "#6272A4"; // Text Color for Dwmblocks  #6272A4*****
+static char normbgcolor[]                = "#100C08"; // Background Color Dwmblocks  #100C08*****
+static char normbordercolor[]            = "#666666"; // Border Color for Unselected Windows #666666
+static char normfloatcolor[]             = "#666666"; // Border Color for Floating Unselected Windows #666666
 
-// Title Selected (Focused) Window Colors
-static char titleselfgcolor[]            = "#100C08"; // Foreground Color for Selected (Focused) Window Titles
-static char titleselbgcolor[]            = "#666666"; // Background Color for Selected (Focused) Window Titles
-static char titleselbordercolor[]        = "#666666"; // Border Color for Selected (Focused) Window Titles
-static char titleselfloatcolor[]         = "#666666"; // Border Color for Floating Selected (Focused) Window Titles
+// Title Unselected Window Colors
+static char titlenormfgcolor[]           = "#666666"; // Text Color for Unselected Window Titles #666666
+static char titlenormbgcolor[]           = "#FF0000"; // Background Color for Unselected Window Titles #100C08
+static char titlenormbordercolor[]       = "#FF0000"; // Border Color for Unselected Window Titles #100C08
+static char titlenormfloatcolor[]        = "#FF0000"; // Border Color for Floating Unselected Window Titles #100C08
 
-// Tags Normal (Unselected) Colors
-static char tagsnormfgcolor[]            = "#f8f8f2"; // Foreground Color for Normal (Unselected) Tags
-static char tagsnormbgcolor[]            = "#100C08"; // Background Color for Normal (Unselected) Tags
-static char tagsnormbordercolor[]        = "#666666"; // Border Color for Normal (Unselected) Tags
-static char tagsnormfloatcolor[]         = "#666666"; // Border Color for Floating Normal (Unselected) Tags
+// Tags Unselected Colors
+static char tagsnormfgcolor[]            = "#f8f8f2"; // Foreground Color for Unselected Tags #f8f8f2*****
+static char tagsnormbgcolor[]            = "#100C08"; // Background Color for Unselected Tags #100C08*****
+static char tagsnormbordercolor[]        = "#666666"; // Border Color for Unselected Tags #666666*****
+static char tagsnormfloatcolor[]         = "#666666"; // Border Color for Floating Unselected Tags #666666*****
 
-// Tags Selected (Focused) Colors
-static char tagsselfgcolor[]             = "#8AFF80"; // Foreground Color for Selected (Focused) Tags
-static char tagsselbgcolor[]             = "#100C08"; // Background Color for Selected (Focused) Tags
-static char tagsselbordercolor[]         = "#666666"; // Border Color for Selected (Focused) Tags
-static char tagsselfloatcolor[]          = "#666666"; // Border Color for Floating Selected (Focused) Tags
+// Tags Selected Colors
+static char tagsselfgcolor[]             = "#9580FF"; // Foreground Color for Focused Tags #9580FF
+static char tagsselbgcolor[]             = "#100C08"; // Background Color for Focused Tags #100C08
+static char tagsselbordercolor[]         = "#666666"; // Border Color for Focused Tags #666666
+static char tagsselfloatcolor[]          = "#666666"; // Border Color for Floating Focused Tags #666666
 
-// Hidden Normal (Unselected) Colors
-static char hidnormfgcolor[]             = "#6272a4"; // Foreground Color for Hidden Normal (Unselected) Windows
-static char hidselfgcolor[]              = "#ff79c6"; // Foreground Color for Hidden Selected (Focused) Windows
-static char hidnormbgcolor[]             = "#100C08"; // Background Color for Hidden Normal (Unselected) Windows
-static char hidselbgcolor[]              = "#100C08"; // Background Color for Hidden Selected (Focused) Windows
+// Hidden Unselected Window Colors
+static char hidnormfgcolor[]             = "#FF0000"; // Foreground Color for Hidden Unselected Windows #FF0000
+static char hidselfgcolor[]              = "#FF0000"; // Foreground Color for Hidden Focused Windows #FF0000
+static char hidnormbgcolor[]             = "#FF0000"; // Background Color for Hidden Unselected Windows #FF0000
+static char hidselbgcolor[]              = "#FF0000"; // Background Color for Hidden Focused Windows #FF0000
 
 // Urgent Window Colors
-static char urgfgcolor[]                 = "#f8f8f2"; // Foreground Color for Urgent Windows
-static char urgbgcolor[]                 = "#ff5555"; // Background Color for Urgent Windows
-static char urgbordercolor[]             = "#ff5555"; // Border Color for Urgent Windows
-static char urgfloatcolor[]              = "#ff5555"; // Border Color for Floating Urgent Windows
+static char urgfgcolor[]                 = "#f8f8f2"; // Foreground Color for Urgent Windows #f8f8f2
+static char urgbgcolor[]                 = "#ff5555"; // Background Color for Urgent Windows #ff5555
+static char urgbordercolor[]             = "#ff5555"; // Border Color for Urgent Windows #ff5555
+static char urgfloatcolor[]              = "#ff5555"; // Border Color for Floating Urgent Windows #ff5555
 
 #if RENAMED_SCRATCHPADS_PATCH
 // Scratchpad Window Colors
-static char scratchselfgcolor[]          = "#f8f8f2"; // Foreground Color for Selected Scratchpad Windows
-static char scratchselbgcolor[]          = "#666666"; // Background Color for Selected Scratchpad Windows
-static char scratchselbordercolor[]      = "#666666"; // Border Color for Selected Scratchpad Windows
-static char scratchselfloatcolor[]       = "#666666"; // Border Color for Floating Selected Scratchpad Windows
+static char scratchselfgcolor[]          = "#f8f8f2"; // Foreground Color for Selected Scratchpad Windows #f8f8f2
+static char scratchselbgcolor[]          = "#666666"; // Background Color for Selected Scratchpad Windows #666666
+static char scratchselbordercolor[]      = "#666666"; // Border Color for Selected Scratchpad Windows #666666
+static char scratchselfloatcolor[]       = "#666666"; // Border Color for Floating Selected Scratchpad Windows #666666
 
-static char scratchnormfgcolor[]         = "#f8f8f2"; // Foreground Color for Normal (Unselected) Scratchpad Windows
-static char scratchnormbgcolor[]         = "#100C08"; // Background Color for Normal (Unselected) Scratchpad Windows
-static char scratchnormbordercolor[]     = "#666666"; // Border Color for Normal (Unselected) Scratchpad Windows
-static char scratchnormfloatcolor[]      = "#666666"; // Border Color for Floating Normal (Unselected) Scratchpad Windows
+static char scratchnormfgcolor[]         = "#f8f8f2"; // Foreground Color for Normal (Unselected) Scratchpad Windows #f8f8f2
+static char scratchnormbgcolor[]         = "#100C08"; // Background Color for Normal (Unselected) Scratchpad Windows #100C08
+static char scratchnormbordercolor[]     = "#666666"; // Border Color for Normal (Unselected) Scratchpad Windows #666666
+static char scratchnormfloatcolor[]      = "#666666"; // Border Color for Floating Normal (Unselected) Scratchpad Windows #666666
 #endif // RENAMED_SCRATCHPADS_PATCH
 
 #if BAR_FLEXWINTITLE_PATCH
 // Flex Window Title Bar Colors
-static char normTTBbgcolor[]             = "#100C08"; // Background Color for Top-to-Bottom layout
-static char normLTRbgcolor[]             = "#100C08"; // Background Color for Left-to-Right layout
-static char normMONObgcolor[]            = "#100C08"; // Background Color for Monocle layout
-static char normGRIDbgcolor[]            = "#100C08"; // Background Color for Grid layout
-static char normGRD1bgcolor[]            = "#100C08"; // Background Color for Grid1 layout
-static char normGRD2bgcolor[]            = "#100C08"; // Background Color for Grid2 layout
-static char normGRDMbgcolor[]            = "#100C08"; // Background Color for GridM layout
-static char normHGRDbgcolor[]            = "#100C08"; // Background Color for Horizontal Grid layout
-static char normDWDLbgcolor[]            = "#100C08"; // Background Color for Double-Width Double-Height layout
-static char normSPRLbgcolor[]            = "#100C08"; // Background Color for Spiral layout
-static char normfloatbgcolor[]           = "#100C08"; // Background Color for Floating window
-
-static char actTTBbgcolor[]              = "#100C08"; // Background Color for Active Top-to-Bottom layout
-static char actLTRbgcolor[]              = "#100C08"; // Background Color for Active Left-to-Right layout
-static char actMONObgcolor[]             = "#666666"; // Background Color for Active Monocle layout
-static char actGRIDbgcolor[]             = "#100C08"; // Background Color for Active Grid layout
-static char actGRD1bgcolor[]             = "#100C08"; // Background Color for Active Grid1 layout
-static char actGRD2bgcolor[]             = "#100C08"; // Background Color for Active Grid2 layout
-static char actGRDMbgcolor[]             = "#100C08"; // Background Color for Active GridM layout
-static char actHGRDbgcolor[]             = "#100C08"; // Background Color for Active Horizontal Grid layout
-static char actDWDLbgcolor[]             = "#100C08"; // Background Color for Active Double-Width Double-Height layout
-static char actSPRLbgcolor[]             = "#100C08"; // Background Color for Active Spiral layout
-static char actfloatbgcolor[]            = "#100C08"; // Background Color for Active Floating window
-
-static char selTTBbgcolor[]              = "#666666"; // Background Color for Selected Top-to-Bottom layout
-static char selLTRbgcolor[]              = "#100C08"; // Background Color for Selected Left-to-Right layout
-static char selMONObgcolor[]             = "#100C08"; // Background Color for Selected Monocle layout
-static char selGRIDbgcolor[]             = "#100C08"; // Background Color for Selected Grid layout
-static char selGRD1bgcolor[]             = "#100C08"; // Background Color for Selected Grid1 layout
-static char selGRD2bgcolor[]             = "#100C08"; // Background Color for Selected Grid2 layout
-static char selGRDMbgcolor[]             = "#100C08"; // Background Color for Selected GridM layout
-static char selHGRDbgcolor[]             = "#100C08"; // Background Color for Selected Horizontal Grid layout
-static char selDWDLbgcolor[]             = "#100C08"; // Background Color for Selected Double-Width Double-Height layout
-static char selSPRLbgcolor[]             = "#100C08"; // Background Color for Selected Spiral layout
-static char selfloatbgcolor[]            = "#666666"; // Background Color for Selected Floating window
+static char normTTBbgcolor[]             = "#100C08"; // Background Color for Top-to-Bottom layout #100C08
+static char normLTRbgcolor[]             = "#100C08"; // Background Color for Left-to-Right layout #100C08
+static char normMONObgcolor[]            = "#100C08"; // Background Color for Monocle layout #100C08
+static char normGRIDbgcolor[]            = "#100C08"; // Background Color for Grid layout #100C08
+static char normGRD1bgcolor[]            = "#100C08"; // Background Color for Grid1 layout #100C08
+static char normGRD2bgcolor[]            = "#100C08"; // Background Color for Grid2 layout #100C08
+static char normGRDMbgcolor[]            = "#100C08"; // Background Color for GridM layout #100C08
+static char normHGRDbgcolor[]            = "#100C08"; // Background Color for Horizontal Grid layout #100C08
+static char normDWDLbgcolor[]            = "#100C08"; // Background Color for Double-Width Double-Height layout #100C08
+static char normSPRLbgcolor[]            = "#100C08"; // Background Color for Spiral layout #100C08
+static char normfloatbgcolor[]           = "#100C08"; // Background Color for Floating window #100C08
+static char actTTBbgcolor[]              = "#100C08"; // Background Color for Active Top-to-Bottom layout #100C08
+static char actLTRbgcolor[]              = "#100C08"; // Background Color for Active Left-to-Right layout #100C08
+static char actMONObgcolor[]             = "#666666"; // Background Color for Active Monocle layout #666666
+static char actGRIDbgcolor[]             = "#100C08"; // Background Color for Active Grid layout #100C08
+static char actGRD1bgcolor[]             = "#100C08"; // Background Color for Active Grid1 layout #100C08
+static char actGRD2bgcolor[]             = "#100C08"; // Background Color for Active Grid2 layout #100C08
+static char actGRDMbgcolor[]             = "#100C08"; // Background Color for Active GridM layout #100C08
+static char actHGRDbgcolor[]             = "#100C08"; // Background Color for Active Horizontal Grid layout #100C08
+static char actDWDLbgcolor[]             = "#100C08"; // Background Color for Active Double-Width Double-Height layout #100C08
+static char actSPRLbgcolor[]             = "#100C08"; // Background Color for Active Spiral layout #100C08
+static char actfloatbgcolor[]            = "#100C08"; // Background Color for Active Floating window #100C08
+static char selTTBbgcolor[]              = "#6272A4"; // Background Color for Selected Top-to-Bottom layout #6272A4*****
+static char selLTRbgcolor[]              = "#100C08"; // Background Color for Selected Left-to-Right layout #100C08
+static char selMONObgcolor[]             = "#100C08"; // Background Color for Selected Monocle layout #100C08
+static char selGRIDbgcolor[]             = "#100C08"; // Background Color for Selected Grid layout #100C08
+static char selGRD1bgcolor[]             = "#100C08"; // Background Color for Selected Grid1 layout #100C08
+static char selGRD2bgcolor[]             = "#100C08"; // Background Color for Selected Grid2 layout #100C08
+static char selGRDMbgcolor[]             = "#100C08"; // Background Color for Selected GridM layout #100C08
+static char selHGRDbgcolor[]             = "#100C08"; // Background Color for Selected Horizontal Grid layout #100C08
+static char selDWDLbgcolor[]             = "#100C08"; // Background Color for Selected Double-Width Double-Height layout #100C08
+static char selSPRLbgcolor[]             = "#100C08"; // Background Color for Selected Spiral layout #100C08
+static char selfloatbgcolor[]            = "#6272A4"; // Background Color for Selected Floating window #6272A4*****
 #endif // BAR_FLEXWINTITLE_PATCH
 
 #if BAR_ALPHA_PATCH
@@ -432,7 +430,7 @@ static const char *const autostart[] = {
 #if RENAMED_SCRATCHPADS_PATCH
 static const char *scratchpadcmd[] = {"s", "st", "-n", "spterm", NULL};
 #elif SCRATCHPADS_PATCH
-const char *spcmd1[] = {"st", "-n", "spterm", "-g", "120x34", NULL };
+const char *spcmd1[] = {"kitty", "-n", "spterm", "-g", "120x34", NULL };
 static Sp scratchpads[] = {
    /* name          cmd  */
    {"spterm",      spcmd1},
@@ -472,7 +470,7 @@ static char tagicons[][NUMTAGS][MAX_TAGLEN] =
 static char *tagicons[][NUMTAGS] =
 #endif // NAMETAG_PATCH
 {
-	[DEFAULT_TAGS]        = { "1", "2", "3", "4", "5", "6", "7", "8", "9" },
+	[DEFAULT_TAGS]        = { "🏠", "2", "3", "4", "5", "6", "7", "8", "9" },
 	[ALTERNATIVE_TAGS]    = { "A", "B", "C", "D", "E", "F", "G", "H", "I" },
 	[ALT_TAGS_DECORATION] = { "<1>", "<2>", "<3>", "<4>", "<5>", "<6>", "<7>", "<8>", "<9>" },
 };
@@ -1020,48 +1018,11 @@ ResourcePref resources[] = {
 };
 #endif // XRESOURCES_PATCH
 
-#include <X11/XF86keysym.h>
-
 static const Key keys[] = {
 	/* modifier                     key            function                argument */
 	#if KEYMODES_PATCH
 	{ MODKEY,                       XK_Escape,     	setkeymode,             {.ui = COMMANDMODE} },
 	#endif // KEYMODES_PATCH
-	{ MODKEY,	    XK_z,	   					spawn,		   	SHCMD("/home/j3ll0/.config/rofi/launchers/type-3/launcher.sh") },
-	{ 0, 			XK_F6,						spawn, 			SHCMD("/home/j3ll0/.config/scripts/brightOFF.sh") },
-	{ 0, 			XK_F8, 	   					spawn, 			SHCMD("brightnessctl set +5%")},
-	{ 0, 			XK_F7, 	   					spawn, 			SHCMD("brightnessctl set 5%-")},
-	{ MODKEY, 		XK_x, 						spawn, 			SHCMD("/home/j3ll0/.config/scripts/powermenu/powermenu.sh") },
-	{ 0,         	XK_F1,      				spawn,         	SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle")},
-	{ 0,            XF86XK_AudioLowerVolume,   	spawn,          SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -5%")},
-	{ 0,            XF86XK_AudioRaiseVolume,   	spawn,          SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +5%")},
-	{ 0,    		XK_F5,				  	 	spawn,          SHCMD("/home/j3ll0/.config/polybar/scripts/keyhintdwm.sh") },
-	{ 0,    		XK_F11,				  	 	spawn,          SHCMD("xset dpms force off") },
-	{ ShiftMask,	XK_F5,				  	    spawn,          SHCMD("/home/j3ll0/.config/polybar/scripts/keyhintvim.sh") },
-	{ MODKEY,       XK_F9,  	 				spawn,          SHCMD("arandr") },
-	{ 0,            XK_F9,  	 				spawn,          SHCMD("/home/j3ll0/.config/scripts/wallpaper.sh") },
-	{ MODKEY,		XK_s,						spawn,			SHCMD("/home/j3ll0/.config/scripts/dmenu-websearch.sh") },
-	{ MODKEY,		XK_n,						spawn,			SHCMD("/home/j3ll0/.config/scripts/pause_dunst.sh") },
-	{ MODKEY,		XK_w,						spawn,			SHCMD("vivaldi") },
-	{ MODKEY|ShiftMask,		XK_w,				spawn,			SHCMD("microsoft-edge-stable") },
-	{ MODKEY,		XK_t,						spawn,			SHCMD("thunar") },
-	{ ShiftMask,	XK_F9,						spawn,			SHCMD("/home/j3ll0/.config/scripts/redshift.sh") },
-	{ MODKEY,		XK_a,						spawn,			SHCMD("flatpak run sh.cider.Cider & com.github.wwmm.easyeffects") },
-	{ MODKEY,		XK_v,						spawn,			SHCMD("vlc") },
-	{ MODKEY,		XK_z,						spawn,			SHCMD("rofi -show drun") },
-	{ 0, 			XK_F12,						spawn,			SHCMD("/home/j3ll0/.config/polybar/launch.sh") },
-	{ 0,			XF86XK_Launch1,				spawn,			SHCMD("/home/j3ll0/.config/scripts/rog_key_scripts.sh") },
-	{ 0,			XF86XK_AudioMicMute,		spawn,			SHCMD("/home/j3ll0/.config/scripts/dwmfolders.sh") },
-	{ ShiftMask,	XF86XK_Launch1,				spawn,			SHCMD("/home/j3ll0/.config/scripts/maintenance.sh") },
-	{ MODKEY,		XK_o,						spawn,			SHCMD("onenote-desktop") },
-	{ MODKEY,		XK_e,						spawn,			SHCMD("evolution") },
-	{ MODKEY,		XK_c,						spawn,			SHCMD("code-oss") },
-	{ MODKEY,		XK_Escape,					spawn,			SHCMD("neohtop") },
-	{ MODKEY|ShiftMask,       XK_z,       		spawn,          SHCMD("/home/j3ll0/.config/scripts/dmenu.sh") },
-	{ MODKEY,       XK_Return,					spawn,          {.v = termcmd } },
-	{ MODKEY, 		XK_KP_Add, 					spawn, 			SHCMD("exec kitty -e /home/j3ll0/update.sh") },
-	{ 0, 			XK_KP_Divide, 				spawn, 			SHCMD("/home/j3ll0/.config/polybar/launch.sh") },
-	{ MODKEY,		XK_KP_Enter,				spawn,			SHCMD("galculator") },
 	#if RIODRAW_PATCH
 	{ MODKEY|ControlMask,           XK_p,          riospawnsync,           {.v = dmenucmd } },
 	{ MODKEY|ControlMask,           XK_Return,     riospawn,               {.v = termcmd } },
@@ -1238,7 +1199,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_F5,         xrdb,                   {.v = NULL } },
 	#endif // XRDB_PATCH | XRESOURCES_PATCH
 	{ MODKEY,                       XK_t,          setlayout,              {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,          setlayout,              {.v = &layouts[1]} },
+	{ MODKEY,                       XK_i,          setlayout,              {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,          setlayout,              {.v = &layouts[2]} },
 	#if COLUMNS_LAYOUT
 	{ MODKEY,                       XK_c,          setlayout,              {.v = &layouts[3]} },
@@ -1280,7 +1241,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_t,          unfloatvisible,         {.v = &layouts[0]} },
 	#endif // UNFLOATVISIBLE_PATCH
 	#if TOGGLEFULLSCREEN_PATCH
-	{ MODKEY,                       XK_y,          togglefullscreen,       {0} },
+	{ MODKEY,                       XK_f,          togglefullscreen,       {0} },
 	#endif // TOGGLEFULLSCREEN_PATCH
 	#if !FAKEFULLSCREEN_PATCH && FAKEFULLSCREEN_CLIENT_PATCH
 	{ MODKEY|ShiftMask,             XK_y,          togglefakefullscreen,   {0} },
@@ -1463,6 +1424,8 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_8,                                  7)
 	TAGKEYS(                        XK_9,                                  8)
 };
+
+/* button definitions */
 
 /* button definitions */
 #if STATUSBUTTON_PATCH
