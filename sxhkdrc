@@ -1,10 +1,49 @@
-# Audio controls
+# ███████╗██╗  ██╗██╗  ██╗██╗  ██╗██████╗ 
+# ██╔════╝╚██╗██╔╝██║  ██║██║ ██╔╝██╔══██╗
+# ███████╗ ╚███╔╝ ███████║█████╔╝ ██║  ██║
+# ╚════██║ ██╔██╗ ██╔══██║██╔═██╗ ██║  ██║
+# ███████║██╔╝ ██╗██║  ██║██║  ██╗██████╔╝
+# ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝
+
+# Audio Controls
 F1
     pactl set-sink-mute @DEFAULT_SINK@ toggle
 XF86AudioLowerVolume
     pactl set-sink-volume @DEFAULT_SINK@ -5%
 XF86AudioRaiseVolume
     pactl set-sink-volume @DEFAULT_SINK@ +5%
+XF86AudioPlay / Pause
+    playerctl play-pause
+XF86AudioNext
+    playerctl next
+XF86AudioPrev
+    playerctl previous
+
+# Screen Brightness Controls
+F6
+    /home/j3ll0/.config/scripts/brightOFF.sh
+F7
+    brightnessctl set 5%-
+F8
+    brightnessctl set +5%
+shift + F9
+    /home/j3ll0/.config/scripts/redshift.sh
+
+# Screen Management
+F9
+    arandr
+XF86AudioMicMute
+    /home/j3ll0/.config/scripts/wallpaper.sh
+
+# Keyboard Brightness Controls
+XF86KbdBrightnessDown
+    asusctl --prev-kbd-bright
+XF86KbdBrightnessUp
+    asusctl --next-kbd-bright
+
+# DPMS (Display Power Management Signaling)
+F11
+    xset dpms force off
 
 # Custom Scripts
 XF86Launch1
@@ -13,13 +52,12 @@ KP_Subtract
     /home/j3ll0/.config/scripts/rog_key_scripts.sh
 KP_Add
     /home/j3ll0/.config/scripts/maintenance.sh
-super + Return
-    /home/j3ll0/.config/scripts/termcmd.sh
 super + KP_Add
     exec kitty -e /home/j3ll0/update.sh
 KP_Multiply
     /home/j3ll0/.config/scripts/dwmconfig.sh
-# Applications 
+
+# Applications and Utilities
 super + o
     onenote-desktop
 super + e
@@ -30,91 +68,59 @@ super + Escape
     missioncenter
 super + KP_Enter
     galculator
+super + Return
+    kitty
 Print
     flameshot gui
-super + shift + r
-    exec kitty -e /home/j3ll0/.suckless/recompile.sh
 
-# DPMS (Display Power Management Signaling)
-F11
-    xset dpms force off
-
-#File Managers
-super + t
-    thunar
-
-# Keyboard brightness controls
-XF86KbdBrightnessDown
-    asusctl --prev-kbd-bright
-XF86KbdBrightnessUp
-    asusctl --next-kbd-bright
-
-# Key hints for dwm
-F5
-    /home/j3ll0/.config/polybar/scripts/keyhintdwm.sh
-
-# Key hints for vim
-shift + F5
-    /home/j3ll0/.config/polybar/scripts/keyhintvim.sh
-
-# Launchers
-super + shift + z
-    /home/j3ll0/.config/scripts/dmenu.sh
-super + z
-    rofi -show drun
-
-# Media
-super + v
-    vlc
-super + a
-    flatpak run sh.cider.Cider & com.github.wwmm.easyeffects
-XF86AudioPlay 
-    playerctl play-pause
-XF86AudioPause 
-    playerctl play-pause
-XF86AudioNext 
-    playerctl next
-XF86AudioPrev 
-    playerctl previous
-
-# Notifications
+# Notifications Management
 super + n
     /home/j3ll0/.config/scripts/pause_dunst.sh
 
-# Polybar launch
+# Polybar Launch
 KP_Divide
     /home/j3ll0/.config/polybar/launch.sh
-    
+
 # Powermenu
 super + x
     /home/j3ll0/.config/scripts/powermenu/powermenu.sh
 
-# Screen management
-F9
-    arandr
-XF86AudioMicMute
-    /home/j3ll0/.config/scripts/wallpaper.sh
+# File Manager
+super + t
+    thunar
 
-# Screen brightness controls
-F6
-    /home/j3ll0/.config/scripts/brightOFF.sh
-F8
-    brightnessctl set +5%
-F7
-    brightnessctl set 5%-
-shift + F9
-    /home/j3ll0/.config/scripts/redshift.sh
-   
-# Terminal
-super + Return
-    kitty
+# Launchers
+super + z
+    rofi -show drun
+super + shift + z
+    /home/j3ll0/.config/scripts/dmenu.sh
 
-# Web search
+# Media Playback and Volume Controls
+super + v
+    vlc --video-on-top
+super + shift + v
+    pavucontrol
+super + a
+    flatpak run sh.cider.Cider & com.github.wwmm.easyeffects
+
+# Key Hints
+F5
+    /home/j3ll0/.config/polybar/scripts/keyhintdwm.sh
+shift + F5
+    /home/j3ll0/.config/polybar/scripts/keyhintvim.sh
+
+# Web Search
 super + s
     /home/j3ll0/.config/scripts/dmenu-websearch.sh
 
-# Web browsers
+# Web Browsers
 super + w
     vivaldi
 super + shift + w
     microsoft-edge-stable
+
+# Recompile Scripts
+super + shift + r
+    exec kitty -e /home/j3ll0/.suckless/recompile.sh
+ctrl + alt + o
+    /home/j3ll0/.config/scripts/picom-toggle.sh
