@@ -64,6 +64,8 @@ super + e
     evolution
 super + c
     code-oss
+super + v
+    virt-manager
 super + Escape
     missioncenter
 super + KP_Enter
@@ -96,7 +98,7 @@ super + shift + z
     /home/j3ll0/.config/scripts/dmenu.sh
 
 # Media Playback and Volume Controls
-super + v
+super + shift + v
     vlc --video-on-top
 super + shift + v
     pavucontrol
