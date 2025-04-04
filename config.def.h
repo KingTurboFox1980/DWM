@@ -22,7 +22,7 @@ static const unsigned int snap           = 32;  /* snap pixel */
 static const int swallowfloating         = 0;   /* 1 means swallow floating windows by default */
 #endif // SWALLOW_PATCH
 #if BAR_TAGPREVIEW_PATCH
-static const int scalepreview            = 4;        /* Tag preview scaling */
+static const int scalepreview            = 3;        /* Tag preview scaling */
 #endif // BAR_TAGPREVIEW_PATCH
 #if NO_MOD_BUTTONS_PATCH
 static int nomodbuttons                  = 1;   /* allow client mouse button bindings that have no modifier */
@@ -179,13 +179,13 @@ static char selbordercolor[]             = "#100C08"; // Border Color for Focuse
 static char selfloatcolor[]              = "#100C08"; // Border Color for Focused Windows #100C08
 
 // Title Focused Window Colors
-static char titleselfgcolor[]            = "#100C08"; // Text Color for Focused Window Titles #100C08*****
+static char titleselfgcolor[]            = "#6C6AF2"; // Text Color for Focused Window Titles #6C6AF2*****
 static char titleselbgcolor[]            = "#FF0000"; // Background Color for Focused Window Titles #FF0000
 static char titleselbordercolor[]        = "#FF0000"; // Border Color for Focused Window Titles #FF0000
 static char titleselfloatcolor[]         = "#FF0000"; // Border Color for Floating Focused Window Titles #FF0000
 
 // Unselected Window Colors
-static char normfgcolor[]                = "#6272A4"; // Text Color for Dwmblocks  #6272A4*****
+static char normfgcolor[]                = "#6C6AF2"; // Text Color for Dwmblocks  #6C6AF2*****
 static char normbgcolor[]                = "#100C08"; // Background Color Dwmblocks  #100C08*****
 static char normbordercolor[]            = "#666666"; // Border Color for Unselected Windows #666666
 static char normfloatcolor[]             = "#666666"; // Border Color for Floating Unselected Windows #666666
@@ -209,10 +209,10 @@ static char tagsselbordercolor[]         = "#666666"; // Border Color for Focuse
 static char tagsselfloatcolor[]          = "#666666"; // Border Color for Floating Focused Tags #666666
 
 // Hidden Unselected Window Colors
-static char hidnormfgcolor[]             = "#FF0000"; // Foreground Color for Hidden Unselected Windows #FF0000
+static char hidnormfgcolor[]             = "#6D128D"; // Foreground Color for Hidden Unselected Windows #6D128D
 static char hidselfgcolor[]              = "#FF0000"; // Foreground Color for Hidden Focused Windows #FF0000
 static char hidnormbgcolor[]             = "#FF0000"; // Background Color for Hidden Unselected Windows #FF0000
-static char hidselbgcolor[]              = "#FF0000"; // Background Color for Hidden Focused Windows #FF0000
+static char hidselbgcolor[]              = "#666666"; // Background Color for Hidden Focused Windows #FF0000
 
 // Urgent Window Colors
 static char urgfgcolor[]                 = "#f8f8f2"; // Foreground Color for Urgent Windows #f8f8f2
@@ -235,7 +235,7 @@ static char scratchnormfloatcolor[]      = "#666666"; // Border Color for Floati
 
 #if BAR_FLEXWINTITLE_PATCH
 // Flex Window Title Bar Colors
-static char normTTBbgcolor[]             = "#100C08"; // Background Color for Top-to-Bottom layout #100C08
+static char normTTBbgcolor[]             = "#100C08"; // Background Color for Top-to-Bottom layout #100C08*****
 static char normLTRbgcolor[]             = "#100C08"; // Background Color for Left-to-Right layout #100C08
 static char normMONObgcolor[]            = "#100C08"; // Background Color for Monocle layout #100C08
 static char normGRIDbgcolor[]            = "#100C08"; // Background Color for Grid layout #100C08
@@ -246,8 +246,8 @@ static char normHGRDbgcolor[]            = "#100C08"; // Background Color for Ho
 static char normDWDLbgcolor[]            = "#100C08"; // Background Color for Double-Width Double-Height layout #100C08
 static char normSPRLbgcolor[]            = "#100C08"; // Background Color for Spiral layout #100C08
 static char normfloatbgcolor[]           = "#100C08"; // Background Color for Floating window #100C08
-static char actTTBbgcolor[]              = "#100C08"; // Background Color for Active Top-to-Bottom layout #100C08
-static char actLTRbgcolor[]              = "#100C08"; // Background Color for Active Left-to-Right layout #100C08
+static char actTTBbgcolor[]              = "#100C08"; // Unsfocused Window Title Background Color  #100C08*****
+static char actLTRbgcolor[]              = "#FF0000"; // Background Color for Active Left-to-Right layout #100C08
 static char actMONObgcolor[]             = "#666666"; // Background Color for Active Monocle layout #666666
 static char actGRIDbgcolor[]             = "#100C08"; // Background Color for Active Grid layout #100C08
 static char actGRD1bgcolor[]             = "#100C08"; // Background Color for Active Grid1 layout #100C08
@@ -257,7 +257,7 @@ static char actHGRDbgcolor[]             = "#100C08"; // Background Color for Ac
 static char actDWDLbgcolor[]             = "#100C08"; // Background Color for Active Double-Width Double-Height layout #100C08
 static char actSPRLbgcolor[]             = "#100C08"; // Background Color for Active Spiral layout #100C08
 static char actfloatbgcolor[]            = "#100C08"; // Background Color for Active Floating window #100C08
-static char selTTBbgcolor[]              = "#6272A4"; // Background Color for Selected Top-to-Bottom layout #6272A4*****
+static char selTTBbgcolor[]              = "#292B36"; // Background Color for Selected Top-to-Bottom layout #292B36*****
 static char selLTRbgcolor[]              = "#100C08"; // Background Color for Selected Left-to-Right layout #100C08
 static char selMONObgcolor[]             = "#100C08"; // Background Color for Selected Monocle layout #100C08
 static char selGRIDbgcolor[]             = "#100C08"; // Background Color for Selected Grid layout #100C08
@@ -267,7 +267,7 @@ static char selGRDMbgcolor[]             = "#100C08"; // Background Color for Se
 static char selHGRDbgcolor[]             = "#100C08"; // Background Color for Selected Horizontal Grid layout #100C08
 static char selDWDLbgcolor[]             = "#100C08"; // Background Color for Selected Double-Width Double-Height layout #100C08
 static char selSPRLbgcolor[]             = "#100C08"; // Background Color for Selected Spiral layout #100C08
-static char selfloatbgcolor[]            = "#6272A4"; // Background Color for Selected Floating window #6272A4*****
+static char selfloatbgcolor[]            = "#5657f5"; // Background Color for Selected Floating window #5657f5*****
 #endif // BAR_FLEXWINTITLE_PATCH
 
 #if BAR_ALPHA_PATCH
@@ -423,17 +423,17 @@ static const Launcher launchers[] = {
 #if COOL_AUTOSTART_PATCH
 static const char *const autostart[] = {
 	"st", NULL,
-	NULL /* terminate */
+	NULL /* inate */
 };
 #endif // COOL_AUTOSTART_PATCH
 
 #if RENAMED_SCRATCHPADS_PATCH
-static const char *scratchpadcmd[] = {"s", "st", "-n", "spterm", NULL};
+static const char *scratchpadcmd[] = {"s", "st", "-n", "sp", NULL};
 #elif SCRATCHPADS_PATCH
-const char *spcmd1[] = {"kitty", "-n", "spterm", "-g", "120x34", NULL };
+const char *spcmd1[] = {"kitty", "-n", "sp", "-g", "120x34", NULL };
 static Sp scratchpads[] = {
    /* name          cmd  */
-   {"spterm",      spcmd1},
+   {"sp",      spcmd1},
 };
 #endif // SCRATCHPADS_PATCH
 
@@ -470,7 +470,7 @@ static char tagicons[][NUMTAGS][MAX_TAGLEN] =
 static char *tagicons[][NUMTAGS] =
 #endif // NAMETAG_PATCH
 {
-	[DEFAULT_TAGS]        = { "🏠", "2", "3", "4", "5", "6", "7", "8", "9" },
+	[DEFAULT_TAGS]        = { "🏠", "🐧", "🔉", "🌎", "💻", "🤖", "7", "8", "9" },
 	[ALTERNATIVE_TAGS]    = { "A", "B", "C", "D", "E", "F", "G", "H", "I" },
 	[ALT_TAGS_DECORATION] = { "<1>", "<2>", "<3>", "<4>", "<5>", "<6>", "<7>", "<8>", "<9>" },
 };
@@ -507,25 +507,34 @@ static const int tagrows = 2;
  * Refer to the Rule struct definition for the list of available fields depending on
  * the patches you enable.
  */
-static const Rule rules[] = {
-	/* xprop(1):
-	 *	WM_CLASS(STRING) = instance, class
-	 *	WM_NAME(STRING) = title
-	 *	WM_WINDOW_ROLE(STRING) = role
-	 *	_NET_WM_WINDOW_TYPE(ATOM) = wintype
-	 */
-	RULE(.wintype = WTYPE "DIALOG", .isfloating = 1)
-	RULE(.wintype = WTYPE "UTILITY", .isfloating = 1)
-	RULE(.wintype = WTYPE "TOOLBAR", .isfloating = 1)
-	RULE(.wintype = WTYPE "SPLASH", .isfloating = 1)
-	RULE(.class = "Gimp", .tags = 1 << 4)
-	RULE(.class = "Firefox", .tags = 1 << 7)
+ static const Rule rules[] = {
+    /* xprop(1):
+     *  WM_CLASS(STRING) = instance, class
+     *  WM_NAME(STRING) = title
+     *  WM_WINDOW_ROLE(STRING) = role
+     *  _NET_WM_WINDOW_TYPE(ATOM) = wintype
+     */
+    RULE(.wintype = WTYPE "DIALOG", .isfloating = 1)
+    RULE(.wintype = WTYPE "UTILITY", .isfloating = 1)
+    RULE(.wintype = WTYPE "TOOLBAR", .isfloating = 1)
+    RULE(.wintype = WTYPE "SPLASH", .isfloating = 1)
+    RULE(.class = "Gimp", .tags = 1 << 4)
+    RULE(.class = "Vivaldi", .tags = 1 << 3) // Rule for Vivaldi to open in tag #4
+	RULE(.class = "Microsoft-edge", .tags = 1 << 3) // Rule for Microsoft Edge to open in tag #4
+	RULE(.class = "microsoftcopilot-nativefier-c6fe3a", .tags = 1 << 5) // Rule for Co-Pilot to open in tag #6
+	RULE(.class = "gemini-nativefier-a3b338", .tags = 1 << 5) // Rule for Gemini to open in tag #6
+	RULE(.class = "Virt-manager", .tags = 1 << 4) // Rule for Virt-Manager to open in tag #VM
+	RULE(.class = "Cider", .tags = 1 << 2) // Rule for Cider to open in tag #MEDIA
+	RULE(.class = "easyeffects", .tags = 1 << 2) // Rule for EasyEffects to open in tag #MEDIA
+	RULE(.class = "code-oss", .tags = 1 << 1) // Rule for Code to open in tag #2
+    RULE(.class = "Geany", .tags = 1 << 1) // Rule for Geany to open in tag #3
 	#if RENAMED_SCRATCHPADS_PATCH
-	RULE(.instance = "spterm", .scratchkey = 's', .isfloating = 1)
-	#elif SCRATCHPADS_PATCH
-	RULE(.instance = "spterm", .tags = SPTAG(0), .isfloating = 1)
-	#endif // SCRATCHPADS_PATCH
+    RULE(.instance = "sp", .scratchkey = 's', .isfloating = 1)
+    #elif SCRATCHPADS_PATCH
+    RULE(.instance = "sp", .tags = SPTAG(0), .isfloating = 1)
+    #endif // SCRATCHPADS_PATCH
 };
+
 
 #if MONITOR_RULES_PATCH
 #if PERTAG_PATCH
@@ -890,7 +899,7 @@ static const char *dmenucmd[] = {
 	#endif // BAR_DMENUMATCHTOP_PATCH
 	NULL
 };
-static const char *termcmd[]  = { "kitty", NULL };
+static const char *cmd[]  = { "kitty", NULL };
 
 #if BAR_STATUSCMD_PATCH
 #if BAR_DWMBLOCKS_PATCH
@@ -1025,7 +1034,7 @@ static const Key keys[] = {
 	#endif // KEYMODES_PATCH
 	#if RIODRAW_PATCH
 	{ MODKEY|ControlMask,           XK_p,          riospawnsync,           {.v = dmenucmd } },
-	{ MODKEY|ControlMask,           XK_Return,     riospawn,               {.v = termcmd } },
+	{ MODKEY,           			XK_Return,     riospawn,               {.v = cmd } },
 	{ MODKEY,                       XK_s,          rioresize,              {0} },
 	#endif // RIODRAW_PATCH
 	{ MODKEY,                       XK_b,          togglebar,              {0} },
@@ -1123,7 +1132,7 @@ static const Key keys[] = {
 	#if INSETS_PATCH
 	{ MODKEY|ShiftMask|ControlMask, XK_a,          updateinset,            {.v = &default_inset } },
 	#endif // INSETS_PATCH
-	{ MODKEY,                       XK_Return,     zoom,                   {0} },
+	{ MODKEY,                       XK_i,     zoom,                   {0} },
 	#if VANITYGAPS_PATCH
 	{ MODKEY|Mod4Mask,              XK_u,          incrgaps,               {.i = +1 } },
 	{ MODKEY|Mod4Mask|ShiftMask,    XK_u,          incrgaps,               {.i = -1 } },
@@ -1458,7 +1467,7 @@ static const Button buttons[] = {
 	{ ClkStatusText,        0,                   Button2,        spawn,          {.v = statuscmd } },
 	{ ClkStatusText,        0,                   Button3,        spawn,          {.v = statuscmd } },
 	#else
-	{ ClkStatusText,        0,                   Button2,        spawn,          {.v = termcmd } },
+	{ ClkStatusText,        0,                   Button2,        spawn,          {.v = cmd } },
 	#endif // BAR_STATUSCMD_PATCH
 	#if PLACEMOUSE_PATCH
 	/* placemouse options, choose which feels more natural:
