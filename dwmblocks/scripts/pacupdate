@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# Check if checkupdates and paru are available
+command -v checkupdates &> /dev/null || {
+  echo "Error: checkupdates command could not be found. Please install pacman-contrib."
+  exit 1
+}
+command -v paru &> /dev/null || {
+  echo "Error: paru command could not be found. Please install an AUR helper like paru."
+  exit 1
+}
+
+# Get the number of updates from official repositories
+pacman_updates=$(checkupdates --nocolor | wc -l)
+
+# Get the number of updates from the AUR (requires paru)
+aur_updates=$(paru -Syu --devel --dry-run | grep ":: Total Downloaded Size" | awk '{print $5}')
+
+# Determine if kernel update is available
+kernel_update=$(checkupdates --nocolor | grep -qE "linux [0-9]+\.[0-9]+\.[0-9]+\S+ -> [0-9]+\.[0-9]+\.[0-9]+\S+")
+
+# Calculate total updates
+total_updates=$((pacman_updates + aur_updates))
+
+# Define output and notification message based on update status
+if [[ "$kernel_update" && "$total_updates" -gt 0 ]]; then
+  output=" + 📦 $total_updates Update(s)"
+  message="Kernel update available! 📦 $total_updates update(s) in total."
+elif [[ "$total_updates" -gt 0 ]]; then
+  output="📦 $total_updates Update(s)"
+  message="📦 $total_updates update(s) available."
+else
+  output=""
+  message=""
+fi
+
+# Display output and send notification
+echo "$output"
+[[ -n "$message" ]] && notify-send "Arch Linux Updates" "$message"

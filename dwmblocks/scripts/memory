@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# Get the percentage of RAM in use and format it with a percentage sign
+ram_usage=$(free -h | awk '/^Mem/ { print $3"/"$2 }' | sed s/i//g)
+
+# Output the RAM usage for dwmblocks
+echo "$ram_usage"
