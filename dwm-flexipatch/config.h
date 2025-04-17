@@ -5,6 +5,7 @@
 #define CMD(...)   { .v = (const char*[]){ __VA_ARGS__, NULL } }
 
 /* appearance */
+static const unsigned int refresh_rate 	 = 120; /* matches dwm's mouse event processing to your monitor's refresh rate for smoother window interactions */
 #if ROUNDED_CORNERS_PATCH
 static const unsigned int borderpx       = 0;   /* border pixel of windows */
 static const int corner_radius           = 10;
@@ -67,7 +68,7 @@ static const int vertpad                 = 5;  /* vertical padding of bar */
 static const int sidepad                 = 5;  /* horizontal padding of bar */
 #endif // BAR_PADDING_PATCH
 #if BAR_WINICON_PATCH
-#define ICONSIZE 25    /* icon size */
+#define ICONSIZE 20    /* icon size */
 #define ICONSPACING 5  /* space between icon and title */
 #endif // BAR_WINICON_PATCH
 #if FOCUSONCLICK_PATCH
@@ -523,8 +524,8 @@ static const int tagrows = 2;
 	RULE(.class = "Microsoft-edge", .tags = 1 << 3) // Rule for Microsoft Edge to open in tag #4
 	RULE(.class = "microsoftcopilot-nativefier-c6fe3a", .tags = 1 << 5) // Rule for Co-Pilot to open in tag #6
 	RULE(.class = "gemini-nativefier-a3b338", .tags = 1 << 5) // Rule for Gemini to open in tag #6
-	RULE(.class = "Virt-manager", .tags = 1 << 4) // Rule for Virt-Manager to open in tag #VM
-	RULE(.class = "Cider", .tags = 1 << 2) // Rule for Cider to open in tag #MEDIA
+	RULE(.class = "Virt-manager", .tags = 1 << 4) // Rule for Virt-manager to open in tag #5
+	RULE(.class = "apple-music-for-linux", .tags = 1 << 2) // Rule for Apple Music to open in tag #MEDIA
 	RULE(.class = "easyeffects", .tags = 1 << 2) // Rule for EasyEffects to open in tag #MEDIA
 	RULE(.class = "code-oss", .tags = 1 << 1) // Rule for Code to open in tag #2
     RULE(.class = "Geany", .tags = 1 << 1) // Rule for Geany to open in tag #3
