@@ -180,13 +180,13 @@ static char selbordercolor[]             = "#100C08"; // Border Color for Focuse
 static char selfloatcolor[]              = "#100C08"; // Border Color for Focused Windows #100C08
 
 // Title Focused Window Colors
-static char titleselfgcolor[]            = "#6C6AF2"; // Text Color for Focused Window Titles #6C6AF2*****
+static char titleselfgcolor[]            = "#01BAB4"; // Text Color for Focused Window Titles and DWM Blocks  #01BAB4*****
 static char titleselbgcolor[]            = "#FF0000"; // Background Color for Focused Window Titles #FF0000
 static char titleselbordercolor[]        = "#FF0000"; // Border Color for Focused Window Titles #FF0000
 static char titleselfloatcolor[]         = "#FF0000"; // Border Color for Floating Focused Window Titles #FF0000
 
 // Unselected Window Colors
-static char normfgcolor[]                = "#6C6AF2"; // Text Color for Dwmblocks  #6C6AF2*****
+static char normfgcolor[]                = "#666666"; // 
 static char normbgcolor[]                = "#100C08"; // Background Color Dwmblocks  #100C08*****
 static char normbordercolor[]            = "#666666"; // Border Color for Unselected Windows #666666
 static char normfloatcolor[]             = "#666666"; // Border Color for Floating Unselected Windows #666666
